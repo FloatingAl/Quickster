@@ -14,7 +14,7 @@ class App extends Component {
     };
   }
 
-//This is a COMMENT  
+//This is a COMMENT times two
 toggle() {
   this.setState({
       dropdownOpen: !this.state.dropdownOpen
