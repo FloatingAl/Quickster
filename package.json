@@ -7,6 +7,7 @@
     "react-dom": "^16.8.5",
     "react-scripts": "2.1.8",
     "reactstrap": "^7.1.0",
+    "semantic-ui-react": "^0.86.0",
     "strap": "^0.1.0"
   },
   "scripts": {

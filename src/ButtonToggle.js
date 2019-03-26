@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './ButtonToggle.css';
 import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import { Input } from 'reactstrap';
+import { Container, Segment} from "semantic-ui-react";
 
 export class ButtonToggle extends Component {
     constructor(props) {
@@ -72,9 +73,10 @@ export class ButtonToggle extends Component {
       console.log(this.props)
     return (
       <div>
-        <p>Please enter a starting address</p>
-        <Input className= "inputStart" placeholder="Starting Address"></Input>
+        <h2>Please enter a starting address</h2>
+        <Input className= "input" id = "inputStart" placeholder="Starting Address"></Input>
         <p>Please choose the amount of address:</p>
+        
         <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
         <DropdownToggle caret>
           {message}
@@ -90,15 +92,23 @@ export class ButtonToggle extends Component {
         </DropdownMenu>
       </ButtonDropdown>
          <div className ="inputG">
-             {this.state.on && Array(this.state.currentClick).fill(0).map((_,x) => <Input onChange="" className= "input1" key = {x} placeholder="Address"></Input>)}
-             {this.state.on2 && Array(this.state.currentClick).fill(0).map((_,x) => <Input className= "input2" key = {x} placeholder="Address"></Input>)}
-             {this.state.on3 && Array(this.state.currentClick).fill(0).map((_,x) => <Input className= "input3" key = {x} placeholder="Address"></Input>)}
-             {this.state.on4 && Array(this.state.currentClick).fill(0).map((_,x) => <Input className= "input4" key = {x} placeholder="Address"></Input>)}
+             {this.state.on && Array(this.state.currentClick).fill(0).map((_,x) => <Input onChange="" className= "inputA" id = "input1" key = {x} placeholder="Address"></Input>)}
+             {this.state.on2 && Array(this.state.currentClick).fill(0).map((_,x) => <Input className= "inputA" id = "input2" key = {x} placeholder="Address"></Input>)}
+             {this.state.on3 && Array(this.state.currentClick).fill(0).map((_,x) => <Input className= "inputA" id = "input3" key = {x} placeholder="Address"></Input>)}
+             {this.state.on4 && Array(this.state.currentClick).fill(0).map((_,x) => <Input className= "inputA" id = "input4" key = {x} placeholder="Address"></Input>)}
                {/* {
                    Array(this.state.curre).fill(0).map( (_,x) => <Input key={x} placeholder="Address"></Input>)
                }  */}
         </div>
+        
+        <button onClick={checker}>
+        Submit
+        </button>
       </div>
     )
   }
+}
+
+function checker() {
+
 }
