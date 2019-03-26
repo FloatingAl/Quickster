@@ -108,7 +108,7 @@ export class ButtonToggle extends Component {
       </div>
     )
   }
-}
+} 
 
 //Source: https://github.com/hibiken/react-places-autocomplete?fbclid=IwAR03LOgSodZOcy2mxnpt7XjGlGT0cc7w5HXd-eNeAOy25Oi3sgyvSL9R-3Q
 class LocationSearchInput extends React.Component {
