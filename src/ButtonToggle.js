@@ -72,6 +72,8 @@ export class ButtonToggle extends Component {
       console.log(this.props)
     return (
       <div>
+        <p>Please enter a starting address</p>
+        <Input className= "inputStart" placeholder="Starting Address"></Input>
         <p>Please choose the amount of address:</p>
         <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
         <DropdownToggle caret>
@@ -88,10 +90,10 @@ export class ButtonToggle extends Component {
         </DropdownMenu>
       </ButtonDropdown>
          <div className ="inputG">
-             {this.state.on && Array(this.state.currentClick).fill(0).map((_,x) => <Input onChange="" className= "inputA" key = {x} placeholder="Address"></Input>)}
-             {this.state.on2 && Array(this.state.currentClick).fill(0).map((_,x) => <Input className= "inputA" key = {x} placeholder="Address"></Input>)}
-             {this.state.on3 && Array(this.state.currentClick).fill(0).map((_,x) => <Input className= "inputA" key = {x} placeholder="Address"></Input>)}
-             {this.state.on4 && Array(this.state.currentClick).fill(0).map((_,x) => <Input className= "inputA" key = {x} placeholder="Address"></Input>)}
+             {this.state.on && Array(this.state.currentClick).fill(0).map((_,x) => <Input onChange="" className= "input1" key = {x} placeholder="Address"></Input>)}
+             {this.state.on2 && Array(this.state.currentClick).fill(0).map((_,x) => <Input className= "input2" key = {x} placeholder="Address"></Input>)}
+             {this.state.on3 && Array(this.state.currentClick).fill(0).map((_,x) => <Input className= "input3" key = {x} placeholder="Address"></Input>)}
+             {this.state.on4 && Array(this.state.currentClick).fill(0).map((_,x) => <Input className= "input4" key = {x} placeholder="Address"></Input>)}
                {/* {
                    Array(this.state.curre).fill(0).map( (_,x) => <Input key={x} placeholder="Address"></Input>)
                }  */}
