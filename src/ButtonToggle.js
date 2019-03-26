@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './ButtonToggle.css';
 import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import { Input } from 'reactstrap';
-import { Container, Segment} from "semantic-ui-react";
+//import { Container, Segment} from "semantic-ui-react";
 import PlacesAutocomplete, { geocodeByAddress, getLatLng, } from 'react-places-autocomplete';
 
 export class ButtonToggle extends Component {
@@ -102,7 +102,7 @@ export class ButtonToggle extends Component {
                }  */}
         </div>
 
-        <button onClick={checker}>
+        <button type="submit" onClick={checker}>
         Submit
         </button>
       </div>
