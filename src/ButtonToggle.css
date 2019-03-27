@@ -4,3 +4,13 @@
 .inputG{
     margin-top: 150px;
 }
+
+.slide{
+    background-color: white;
+    color: black;
+    list-style-type: none;
+}
+
+.slide:hover{
+    background-color: grey;
+}
