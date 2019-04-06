@@ -14,3 +14,8 @@
 .slide:hover{
     background-color: grey;
 }
+
+#inputStart{
+    background-color: white;
+    border-block-end-style: hidden;
+}

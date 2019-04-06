@@ -25,8 +25,18 @@ export class ButtonToggle extends Component {
           start: null,
           first: null,
           second: null,
+          input1: '',
+          input2: '',
+          input3: '',
+          input4: ''
         };
       }
+
+    clicked()
+    {
+      var mapUrl = "https://www.google.com/maps/place/";
+      window.open(mapUrl, "Google Maps");
+    }
     
     toggle = () =>  {
         
@@ -85,13 +95,14 @@ export class ButtonToggle extends Component {
         <h2>Please enter a starting address</h2>
         {/* <Input className= "input" id = "inputStart" placeholder="Starting Address"></Input> */}
         <GoogleComponent
-            id = "inputStart"
+            ref = "inputStart"
             apiKey={apikey}
             language={'en'}
             country={'country:in|country:us'}
             coordinates={true}
             locationBoxStyle={'input'}
             locationListStyle={'slide'}
+            
             onChange={(e) => { this.setState({ start: e }) }} />
         <p>Please choose the amount of address:</p>
         
@@ -112,95 +123,29 @@ export class ButtonToggle extends Component {
          <div className ="inputG">
              {this.state.on && Array(this.state.currentClick).fill(0).map((_,x) =><GoogleComponent 
              apiKey={apikey} 
-             id = "input1" language={'en'} country={'country:in|country:us'} coordinates={true} locationBoxStyle={'inputA'}locationListStyle={'slide'}
+             ref = "input1" language={'en'} country={'country:in|country:us'} coordinates={true} locationBoxStyle={'inputA'}locationListStyle={'slide'}
              onChange={(e) => { this.setState({ first: e }) }} /> )}
             
             { this.state.on2 && Array(this.state.currentClick).fill(0).map((_,x) =><GoogleComponent 
              apiKey={apikey} 
-             id = "input2" language={'en'} country={'country:in|country:us'} coordinates={true} locationBoxStyle={'inputA'}locationListStyle={'slide'}
+             ref = "input2" language={'en'} country={'country:in|country:us'} coordinates={true} locationBoxStyle={'inputA'}locationListStyle={'slide'}
              onChange={(e) => { this.setState({ first: e  }) }} /> )}
 
             {this.state.on3 && Array(this.state.currentClick).fill(0).map((_,x) =><GoogleComponent 
              apiKey={apikey} 
-             id = "input3" language={'en'} country={'country:in|country:us'} coordinates={true} locationBoxStyle={'inputA'}locationListStyle={'slide'}
+             ref = "input3" language={'en'} country={'country:in|country:us'} coordinates={true} locationBoxStyle={'inputA'}locationListStyle={'slide'}
              onChange={(e) => { this.setState({ first: e }) }} /> )}
 
             {this.state.on4 && Array(this.state.currentClick).fill(0).map((_,x) =><GoogleComponent 
              apiKey={apikey} 
-             id = "input4" language={'en'} country={'country:in|country:us'} coordinates={true} locationBoxStyle={'inputA'}locationListStyle={'slide'}
+             ref = "input4" language={'en'} country={'country:in|country:us'} coordinates={true} locationBoxStyle={'inputA'}locationListStyle={'slide'}
              onChange={(e) => { this.setState({ first: e }) }} /> )}
         </div>
-
-        <button type="submit">
-        Submit
-        </button>
+        <button onClick={ (e) => { this.clicked(); } }> Submit</button>
       </div>
+      
     )
   }
 } 
 
-// //Source: https://github.com/hibiken/react-places-autocomplete?fbclid=IwAR03LOgSodZOcy2mxnpt7XjGlGT0cc7w5HXd-eNeAOy25Oi3sgyvSL9R-3Q
-// class LocationSearchInput extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = { address: '' };
-//   }
 
-//   handleChange = address => {
-//     this.setState({ address });
-//   };
-
-//   handleSelect = address => {
-//     geocodeByAddress(address)
-//       .then(results => getLatLng(results[0]))
-//       .then(latLng => console.log('Success', latLng))
-//       .catch(error => console.error('Error', error));
-//   };
-
-//   render() {
-//     return (
-//       <PlacesAutocomplete
-//         value={this.state.address}
-//         onChange={this.handleChange}
-//         onSelect={this.handleSelect}
-//       >
-//         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-//           <div>
-//             <input
-//               {...getInputProps({
-//                 placeholder: 'Search Places ...',
-//                 className: 'location-search-input',
-//               })}
-//             />
-//             <div className="autocomplete-dropdown-container">
-//               {loading && <div>Loading...</div>}
-//               {suggestions.map(suggestion => {
-//                 const className = suggestion.active
-//                   ? 'suggestion-item--active'
-//                   : 'suggestion-item';
-//                 // inline style for demonstration purpose
-//                 const style = suggestion.active
-//                   ? { backgroundColor: '#fafafa', cursor: 'pointer' }
-//                   : { backgroundColor: '#ffffff', cursor: 'pointer' };
-//                 return (
-//                   <div
-//                     {...getSuggestionItemProps(suggestion, {
-//                       className,
-//                       style,
-//                     })}
-//                   >
-//                     <span>{suggestion.description}</span>
-//                   </div>
-//                 );
-//               })}
-//             </div>
-//           </div>
-//         )}
-//       </PlacesAutocomplete>
-//     );
-//   }
-// }
-
-function checker() {
-
-}
