@@ -5,8 +5,7 @@ import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reac
 //import { Container, Segment} from "semantic-ui-react";
 //import PlacesAutocomplete, { geocodeByAddress, getLatLng, } from 'react-places-autocomplete';
 import { GoogleComponent } from 'react-google-location' 
-
-const apikey = "AIzaSyCkF2kq7ElyH4OtWelckXaKktYWqIi86dU";
+import apikey from './google_api_key'
 
 export class ButtonToggle extends Component {
     constructor(props) {
@@ -47,7 +46,7 @@ export class ButtonToggle extends Component {
 
     toggleButton1 = () => {
         this.setState({
-            on: !this.state.on,
+            on:  true,
             on2: false,
             on3: false,
             on4: false,
@@ -57,8 +56,8 @@ export class ButtonToggle extends Component {
 
     toggleButton2 = () => {
         this.setState({
-            on: false,
-            on2:!this.state.on2,
+            on: true,
+            on2: true,
             on3: false,
             on4: false,
             currentClick: 2,
@@ -69,9 +68,9 @@ export class ButtonToggle extends Component {
 
     toggleButton3 = () => {
         this.setState({
-            on: false,
-            on2:false,
-            on3:!this.state.on3,
+            on: true,
+            on2:true,
+            on3:true,
             on4:false,
             currentClick: 3,
         });
@@ -79,10 +78,10 @@ export class ButtonToggle extends Component {
 
     toggleButton4 = () => {
         this.setState({
-            on: false,
-            on2:false,
-            on3:false,
-            on4:!this.state.on4,
+            on: true,
+            on2:true,
+            on3:true,
+            on4:true,
             currentClick: 4,
         });
     }
@@ -121,27 +120,29 @@ export class ButtonToggle extends Component {
         </DropdownMenu>
       </ButtonDropdown>
          <div className ="inputG">
-             {this.state.on && Array(this.state.currentClick).fill(0).map((_,x) =><GoogleComponent 
+             {this.state.on && <GoogleComponent 
              apiKey={apikey} 
              ref = "input1" language={'en'} country={'country:in|country:us'} coordinates={true} locationBoxStyle={'inputA'}locationListStyle={'slide'}
-             onChange={(e) => { this.setState({ first: e }) }} /> )}
-            
-            { this.state.on2 && Array(this.state.currentClick).fill(0).map((_,x) =><GoogleComponent 
+             onChange={(e) => { this.setState({ first: e }) }} />}
+
+            {this.state.on2 && <GoogleComponent 
              apiKey={apikey} 
              ref = "input2" language={'en'} country={'country:in|country:us'} coordinates={true} locationBoxStyle={'inputA'}locationListStyle={'slide'}
-             onChange={(e) => { this.setState({ first: e  }) }} /> )}
+             onChange={(e) => { this.setState({ second: e }) }} />}
 
-            {this.state.on3 && Array(this.state.currentClick).fill(0).map((_,x) =><GoogleComponent 
+            {this.state.on3 && <GoogleComponent 
              apiKey={apikey} 
              ref = "input3" language={'en'} country={'country:in|country:us'} coordinates={true} locationBoxStyle={'inputA'}locationListStyle={'slide'}
-             onChange={(e) => { this.setState({ first: e }) }} /> )}
+             onChange={(e) => { this.setState({ first: e }) }} /> }
 
-            {this.state.on4 && Array(this.state.currentClick).fill(0).map((_,x) =><GoogleComponent 
+            {this.state.on4 && <GoogleComponent 
              apiKey={apikey} 
              ref = "input4" language={'en'} country={'country:in|country:us'} coordinates={true} locationBoxStyle={'inputA'}locationListStyle={'slide'}
-             onChange={(e) => { this.setState({ first: e }) }} /> )}
+             onChange={(e) => { this.setState({ first: e }) }} /> }
         </div>
+        <div>
         <button onClick={ (e) => { this.clicked(); } }> Submit</button>
+        </div>
       </div>
       
     )
