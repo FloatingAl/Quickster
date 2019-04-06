@@ -24,10 +24,18 @@ export class ButtonToggle extends Component {
           start: null,
           first: null,
           second: null,
-          third: null,
-          fourth: null,
+          input1: '',
+          input2: '',
+          input3: '',
+          input4: ''
         };
       }
+
+    clicked()
+    {
+      var mapUrl = "https://www.google.com/maps/place/";
+      window.open(mapUrl, "Google Maps");
+    }
     
     toggle = () =>  {
         
@@ -97,13 +105,14 @@ export class ButtonToggle extends Component {
         <h2>Please enter a starting address</h2>
         {/* <Input className= "input" id = "inputStart" placeholder="Starting Address"></Input> */}
         <GoogleComponent
-            id = "inputStart"
+            ref = "inputStart"
             apiKey={apikey}
             language={'en'}
             country={'country:in|country:us'}
             coordinates={true}
             locationBoxStyle={'input'}
             locationListStyle={'slide'}
+            
             onChange={(e) => { this.setState({ start: e }) }} />
         <p>Please choose the amount of address:</p>
         
@@ -124,31 +133,43 @@ export class ButtonToggle extends Component {
          <div className ="inputG">
              {this.state.on && <GoogleComponent 
              apiKey={apikey} 
-             id = "input1" language={'en'} country={'country:in|country:us'} coordinates={true} locationBoxStyle={'inputA'}locationListStyle={'slide'}
+             ref = "input1" language={'en'} country={'country:in|country:us'} coordinates={true} locationBoxStyle={'inputA'}locationListStyle={'slide'}
              onChange={(e) => { this.setState({ first: e }) }} />}
 
             {this.state.on2 && <GoogleComponent 
              apiKey={apikey} 
-             id = "input2" language={'en'} country={'country:in|country:us'} coordinates={true} locationBoxStyle={'inputA'}locationListStyle={'slide'}
+             ref = "input2" language={'en'} country={'country:in|country:us'} coordinates={true} locationBoxStyle={'inputA'}locationListStyle={'slide'}
              onChange={(e) => { this.setState({ second: e }) }} />}
 
             {this.state.on3 && <GoogleComponent 
              apiKey={apikey} 
-             id = "input3" language={'en'} country={'country:in|country:us'} coordinates={true} locationBoxStyle={'inputA'}locationListStyle={'slide'}
-             onChange={(e) => { this.setState({ third: e }) }} />}
+             ref = "input3" language={'en'} country={'country:in|country:us'} coordinates={true} locationBoxStyle={'inputA'}locationListStyle={'slide'}
+             onChange={(e) => { this.setState({ first: e }) }} /> }
 
             {this.state.on4 && <GoogleComponent 
              apiKey={apikey} 
-             id = "input4" language={'en'} country={'country:in|country:us'} coordinates={true} locationBoxStyle={'inputA'}locationListStyle={'slide'}
-             onChange={(e) => { this.setState({ fourth: e }) }} />}
+             ref = "input4" language={'en'} country={'country:in|country:us'} coordinates={true} locationBoxStyle={'inputA'}locationListStyle={'slide'}
+             onChange={(e) => { this.setState({ first: e }) }} /> }
         </div>
+        <div>
+        <button onClick={ (e) => { this.clicked(); } }> Submit</button>
+        </div>
+<<<<<<< HEAD:src/Files/ButtonToggle.js
 
         <button 
             type="submit"
             onClick = {this.locations}>
         Submit
         </button>
+=======
+>>>>>>> 429cb09beb86c9c7e4550fc5eabdc54647e3c1d4:src/ButtonToggle.js
       </div>
+      
     )
   }
 } 
+<<<<<<< HEAD:src/Files/ButtonToggle.js
+=======
+
+
+>>>>>>> 429cb09beb86c9c7e4550fc5eabdc54647e3c1d4:src/ButtonToggle.js
