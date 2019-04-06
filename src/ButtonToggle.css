@@ -19,3 +19,10 @@
     background-color: white;
     border-block-end-style: hidden;
 }
+
+html{
+    background-image: url("../src/img/map.jpg");
+    background-repeat: no-repeat;
+    background-size: auto auto;
+    background-position: center;
+}
