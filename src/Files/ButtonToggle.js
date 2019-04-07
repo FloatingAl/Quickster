@@ -31,10 +31,12 @@ export class ButtonToggle extends Component {
         };
       }
 
-    clicked()
+    clicked() //will open a new tab to google maps
     {
       console.log(this.state.start.coordinates.lat)
       var mapUrl = "https://www.google.com/maps/search/?api=1&query=" + this.state.start.coordinates.lat + "," + this.state.start.coordinates.lng ;
+    //   var inStart = this.inputStart.value;
+    //   var mapUrl = "https://www.google.com/maps/place/" + inStart; 
       window.open(mapUrl, "Google Maps");
     }
     
@@ -106,7 +108,9 @@ export class ButtonToggle extends Component {
         <h2>Please enter a starting address</h2>
         {/* <Input className= "input" id = "inputStart" placeholder="Starting Address"></Input> */}
         <GoogleComponent
-            ref = "inputStart"
+            type = "text"
+            ref = {this.inputStart}
+            value = "Starting Address"
             apiKey={apikey}
             language={'en'}
             country={'country:in|country:us'}
@@ -115,7 +119,7 @@ export class ButtonToggle extends Component {
             locationListStyle={'slide'}
             
             onChange={(e) => { this.setState({ start: e }) }} />
-        <p>Please choose the amount of address:</p>
+        <p>Please choose the number of address you plan to visit:</p>
         
         <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
         <DropdownToggle caret>
