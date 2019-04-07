@@ -33,7 +33,8 @@ export class ButtonToggle extends Component {
 
     clicked()
     {
-      var mapUrl = "https://www.google.com/maps/place/";
+      console.log(this.state.start.coordinates.lat)
+      var mapUrl = "https://www.google.com/maps/search/?api=1&query=" + this.state.start.coordinates.lat + "," + this.state.start.coordinates.lng ;
       window.open(mapUrl, "Google Maps");
     }
     
@@ -154,22 +155,14 @@ export class ButtonToggle extends Component {
         <div>
         <button onClick={ (e) => { this.clicked(); } }> Submit</button>
         </div>
-<<<<<<< HEAD:src/Files/ButtonToggle.js
 
         <button 
             type="submit"
             onClick = {this.locations}>
         Submit
         </button>
-=======
->>>>>>> 429cb09beb86c9c7e4550fc5eabdc54647e3c1d4:src/ButtonToggle.js
       </div>
       
     )
   }
 } 
-<<<<<<< HEAD:src/Files/ButtonToggle.js
-=======
-
-
->>>>>>> 429cb09beb86c9c7e4550fc5eabdc54647e3c1d4:src/ButtonToggle.js
