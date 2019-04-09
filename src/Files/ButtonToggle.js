@@ -173,12 +173,6 @@ export class ButtonToggle extends Component {
         <div>
         <button onClick={ (e) => { this.clicked(); } }> Submit</button>
         </div>
-
-        <button 
-            type="submit"
-            onClick = {this.locations}>
-        Submit
-        </button>
       </div>
       
     )
