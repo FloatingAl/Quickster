@@ -178,3 +178,5 @@ export class ButtonToggle extends Component {
     )
   }
 } 
+
+export default ButtonToggle;
