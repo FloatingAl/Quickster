@@ -133,7 +133,7 @@ export class ButtonToggle extends Component {
             locationListStyle={'slide'}
             
             onChange={(e) => { this.setState({ start: e }) }} />
-        <p>Please choose the number of address you plan to visit:</p>
+        <p>Please choose the number of addresses you plan to visit:</p>
         
         <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
         <DropdownToggle caret>
