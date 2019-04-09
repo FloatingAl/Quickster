@@ -24,19 +24,33 @@ export class ButtonToggle extends Component {
           start: null,
           first: null,
           second: null,
+          third: null,
+          fourth: null,
           input1: '',
           input2: '',
           input3: '',
-          input4: ''
+          input4: '',
         };
       }
 
     clicked() //will open a new tab to google maps
     {
       console.log(this.state.start.coordinates.lat)
-      var mapUrl = "https://www.google.com/maps/search/?api=1&query=" + this.state.start.coordinates.lat + "," + this.state.start.coordinates.lng ;
-    //   var inStart = this.inputStart.value;
-    //   var mapUrl = "https://www.google.com/maps/place/" + inStart; 
+      var mapUrl = "https://www.google.com/maps/dir/" + this.state.start.place
+
+      if (this.state.currentClick == 1){
+        var mapUrl = "https://www.google.com/maps/dir/" + this.state.start.place + "/" + this.state.first.place
+      }
+      else if (this.state.currentClick == 2) {
+        var mapUrl = "https://www.google.com/maps/dir/" + this.state.start.place + "/" + this.state.first.place + "/" + this.state.second.place 
+      }
+      else if (this.state.currentClick == 3){
+        var mapUrl = "https://www.google.com/maps/dir/" + this.state.start.place + "/" + this.state.first.place + "/" + this.state.second.place + "/" + this.state.third.place
+      }
+      else if (this.state.currentClick == 4){
+        var mapUrl = "https://www.google.com/maps/dir/" + this.state.start.place + "/" + this.state.first.place + "/" + this.state.second.place + "/" + this.state.third.place + "/" + this.state.fourth.place
+      }
+
       window.open(mapUrl, "Google Maps");
     }
     
@@ -149,12 +163,12 @@ export class ButtonToggle extends Component {
             {this.state.on3 && <GoogleComponent 
              apiKey={apikey} 
              ref = "input3" language={'en'} country={'country:in|country:us'} coordinates={true} locationBoxStyle={'inputA'}locationListStyle={'slide'}
-             onChange={(e) => { this.setState({ first: e }) }} /> }
+             onChange={(e) => { this.setState({ third: e }) }} /> }
 
             {this.state.on4 && <GoogleComponent 
              apiKey={apikey} 
              ref = "input4" language={'en'} country={'country:in|country:us'} coordinates={true} locationBoxStyle={'inputA'}locationListStyle={'slide'}
-             onChange={(e) => { this.setState({ first: e }) }} /> }
+             onChange={(e) => { this.setState({ fourth: e }) }} /> }
         </div>
         <div>
         <button onClick={ (e) => { this.clicked(); } }> Submit</button>
