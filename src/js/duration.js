@@ -11,7 +11,7 @@ export function getDuration(apikey, A, B) {
       })
       .then(function(myJson) {
         duration = myJson.rows[0].elements[0].duration.value;
-        console.log(myJson.rows[0].elements[0].duration.value);
+        console.log(Number.isInteger(duration));
       });
       return duration;
 }
