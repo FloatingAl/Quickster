@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import apikey from '../google_api_key'
-import { getDuration } from './duration.js'
+//import { getDuration } from 'duration.js'
 
 
 class Duration extends Component {
