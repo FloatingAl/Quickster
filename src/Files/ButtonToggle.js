@@ -180,9 +180,8 @@ export class ButtonToggle extends Component {
     
   render() {
       const {message} = this.props
-      console.log(this.props)
     return (
-      <div>
+      <div className = "Button" >
         <h2>Please enter a starting address</h2>
         {/* <Input className= "input" id = "inputStart" placeholder="Starting Address"></Input> */}
         <GoogleComponent

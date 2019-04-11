@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+export function getDuration(origin, destination, apikey) {
+    var origin = 'Lowell,Massachusetts';
+    var destination = 'Boston,Massachusetts';
+=======
 export function getDuration(apikey, A, B) {
   var origin = A;
   var destination = B;
