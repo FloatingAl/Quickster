@@ -124,7 +124,6 @@ export class ButtonToggle extends Component {
     
   render() {
       const {message} = this.props
-      console.log(this.props)
     return (
       <div>
         <h2>Please enter a starting address</h2>
