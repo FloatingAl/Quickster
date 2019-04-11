@@ -6,7 +6,8 @@ import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reac
 //import PlacesAutocomplete, { geocodeByAddress, getLatLng, } from 'react-places-autocomplete';
 import { GoogleComponent } from 'react-google-location' 
 import apikey from '../google_api_key'
-import Distance from '../Files/Distance'
+//import Distance from '../Files/Distance'
+import {getDuration} from '../js/duration'
 
 export class ButtonToggle extends Component {
     constructor(props) {
@@ -72,6 +73,7 @@ export class ButtonToggle extends Component {
         var mapUrl = "https://www.google.com/maps/dir/" + this.state.start.place + "/" + this.state.first.place + "/" + this.state.second.place + "/" + this.state.third.place
         window.open(mapUrl, "Google Maps");
       }
+      {getDuration(apikey, this.state.start.place, this.state.first.place)}
     }
 
     toggle = () =>  {
@@ -173,7 +175,6 @@ export class ButtonToggle extends Component {
         </div>
         <div>
         <button onClick={ (e) => { this.clicked(); } }> Submit</button>
-        <Distance/>
         </div>
       </div>
       

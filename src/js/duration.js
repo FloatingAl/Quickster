@@ -1,6 +1,6 @@
-export function getDuration(apikey) {
-    var origin = 'Wilmingotn,Massachusetts';
-    var destination = 'Boston,Massachusetts';
+export function getDuration(apikey, A, B) {
+    var origin = A;
+    var destination = B;
     var proxyUrl = 'https://cors-anywhere.herokuapp.com/';
     var duration;
     
