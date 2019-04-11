@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 export function getDuration(origin, destination, apikey) {
     var origin = 'Lowell,Massachusetts';
     var destination = 'Boston,Massachusetts';
+=======
+export function getDuration(apikey, A, B) {
+    var origin = A;
+    var destination = B;
+>>>>>>> 747566b6dadc85e4494ba70d4e362964dbffe407
     var proxyUrl = 'https://cors-anywhere.herokuapp.com/';
     var duration;
     
