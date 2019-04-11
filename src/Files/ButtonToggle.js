@@ -6,6 +6,7 @@ import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reac
 //import PlacesAutocomplete, { geocodeByAddress, getLatLng, } from 'react-places-autocomplete';
 import { GoogleComponent } from 'react-google-location' 
 import apikey from '../google_api_key'
+import Distance from '../Files/Distance'
 
 export class ButtonToggle extends Component {
     constructor(props) {
@@ -172,6 +173,7 @@ export class ButtonToggle extends Component {
         </div>
         <div>
         <button onClick={ (e) => { this.clicked(); } }> Submit</button>
+        <Distance/>
         </div>
       </div>
       
