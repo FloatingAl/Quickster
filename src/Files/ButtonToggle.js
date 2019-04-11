@@ -73,7 +73,7 @@ export class ButtonToggle extends Component {
         window.open(mapUrl, "Google Maps");
       }
     }
-    
+
     toggle = () =>  {
         
       this.setState({
