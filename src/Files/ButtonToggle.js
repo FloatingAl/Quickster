@@ -60,6 +60,7 @@ export class ButtonToggle extends Component {
           window.alert("Please enter an address for all the boxes");
           return;
         }
+        
         var mapUrl = "https://www.google.com/maps/dir/" + this.state.start.place + "/" + this.state.first.place + "/" + this.state.second.place 
         window.open(mapUrl, "Google Maps");
 
@@ -70,10 +71,65 @@ export class ButtonToggle extends Component {
           window.alert("Please enter an address for all the boxes");
           return;
         }
-        var mapUrl = "https://www.google.com/maps/dir/" + this.state.start.place + "/" + this.state.first.place + "/" + this.state.second.place + "/" + this.state.third.place
-        window.open(mapUrl, "Google Maps");
+
+        var mapUrl = "https://www.google.com/maps/dir/" + this.state.start.place + "/";
+        var dist1 = getDuration(apikey, this.state.start.place, this.state.first.place);
+        var dist2 = getDuration(apikey, this.state.start.place, this.state.second.place);
+        var dist3 = getDuration(apikey, this.state.start.place, this.state.third.place);
+        var bestDur = Math.min(dist1, dist2, dist3); 
+        if (bestDur === dist1)
+        {
+          mapUrl = mapUrl + this.state.first.place + "/";
+          dist1 = Number(getDuration(apikey, this.state.first.place, this.state.second.place));
+          dist2 = Number(getDuration(apikey, this.state.first.place, this.state.third.place));
+          bestDur = Math.min(dist1,dist2);
+          if(bestDur === dist1)
+          {
+            mapUrl = mapUrl + this.state.second.place + "/" + this.state.third.place;
+            window.open(mapUrl, "Google Maps");
+          }
+          else if(bestDur === dist2)
+          {
+            mapUrl = mapUrl + this.state.third.place + "/" + this.state.second.place;
+            window.open(mapUrl, "Google Maps");
+          }
+        }
+
+        else if (bestDur === dist2)
+        {
+          mapUrl = mapUrl + this.state.second.place + "/";
+          dist1 = Number(getDuration(apikey, this.state.second.place, this.state.first.place));
+          dist2 = Number(getDuration(apikey, this.state.second.place, this.state.third.place));
+          bestDur = Math.min(dist1,dist2);
+          if(bestDur === dist1)
+          {
+            mapUrl = mapUrl + this.state.first.place + "/" + this.state.third.place;
+            window.open(mapUrl, "Google Maps");
+          }
+          else if(bestDur === dist2)
+          {
+            mapUrl = mapUrl + this.state.third.place + "/" + this.state.first.place;
+            window.open(mapUrl, "Google Maps");
+          }
+        }
+        else if (bestDur === dist3)
+        {
+          mapUrl = mapUrl + this.state.third.place + "/";
+          dist1 = Number(getDuration(apikey, this.state.third.place, this.state.second.place));
+          dist2 = Number(getDuration(apikey, this.state.third.place, this.state.first.place));
+          bestDur = Math.min(dist1,dist2);
+          if(bestDur === dist1)
+          {
+            mapUrl = mapUrl + this.state.second.place + "/" + this.state.first.place;
+            window.open(mapUrl, "Google Maps");
+          }
+          else if(bestDur === dist2)
+          {
+            mapUrl = mapUrl + this.state.first.place + "/" + this.state.second.place;
+            window.open(mapUrl, "Google Maps");
+          }
+        }
       }
-      {getDuration(apikey, this.state.start.place, this.state.first.place)}
     }
 
     toggle = () =>  {

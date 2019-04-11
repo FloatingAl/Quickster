@@ -1,7 +1,7 @@
 export function getDuration(apikey, A, B) {
-    var origin = A;
-    var destination = B;
-    var proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+  var origin = A;
+  var destination = B;
+  var proxyUrl = 'https://cors-anywhere.herokuapp.com/';
     var duration;
     
     fetch(proxyUrl + 'https://maps.googleapis.com/maps/api/distancematrix/json?origins=' 
@@ -11,7 +11,7 @@ export function getDuration(apikey, A, B) {
       })
       .then(function(myJson) {
         duration = myJson.rows[0].elements[0].duration.value;
-        console.log(myJson.rows[0].elements[0].duration.value);
+        console.log("duration is " + myJson.rows[0].elements[0].duration.value);
+        return duration;
       });
-      return duration;
 }
