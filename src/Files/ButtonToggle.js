@@ -74,10 +74,12 @@ export class ButtonToggle extends Component {
 
         var mapUrl = "https://www.google.com/maps/dir/" + this.state.start.place + "/";
         var dist1 = getDuration(apikey, this.state.start.place, this.state.first.place);
-        var dist2 = getDuration(apikey, this.state.start.place, this.state.second.place);
-        var dist3 = getDuration(apikey, this.state.start.place, this.state.third.place);
-        var bestDur = Math.min(dist1, dist2, dist3); 
         console.log("dist1 is " + dist1);
+        var dist2 = getDuration(apikey, this.state.start.place, this.state.second.place);
+        console.log("dist2 is " + dist2);
+        var dist3 = getDuration(apikey, this.state.start.place, this.state.third.place);
+        console.log("dist3 is " + dist3);
+        var bestDur = Math.min(dist1, dist2, dist3); 
         if (bestDur === dist1)
         {
           mapUrl = mapUrl + this.state.first.place + "/";
