@@ -30,7 +30,7 @@ class Duration extends Component {
           })
           .then(function(myJson) {
             duration = myJson.rows[0].elements[0].duration.value;
-            console.log(myJson.rows[0].elements[0].duration.value);
+            //console.log(myJson.rows[0].elements[0].duration.value);
           });
           return duration;
     }
