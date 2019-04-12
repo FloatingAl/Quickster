@@ -19,7 +19,7 @@ export class Distance extends Component {
             this.setState({
                 data: reJson 
             })
-        console.log(reJson)
+        //console.log(reJson)
         },
         (error) => {
             this.setState({

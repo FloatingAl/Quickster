@@ -20,9 +20,11 @@
     border-block-end-style: hidden;
 }
 
-html{
-    background-image: url("../src/img/map.jpg");
-    background-repeat: no-repeat;
-    background-size: auto auto;
+
+.Button{
+    background-color: tan;
     background-position: center;
+    border-style: dashed;
+    border-color: black;
+    padding: 15px;
 }
