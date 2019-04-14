@@ -72,16 +72,85 @@ export class ButtonToggle extends Component {
           return;
         }
 
-        var mapUrl = "https://www.google.com/maps/dir/" + this.state.start.place + "/";
-        var dist1 = getDuration(apikey, this.state.start.place, this.state.first.place);
+        mapUrl = "https://www.google.com/maps/dir/" + this.state.start.place + "/";
+        var dist1, dist2, dist3;
+        var A = this.state.start.place;
+        var B = this.state.first.place;
+        var C = this.state.second.place;
+        var D = this.state.third.place;
+
+        (async function(){
+            dist1 = await getDuration(apikey, A, B);
+            console.log("dist1 is " + dist1);
+            dist2 = await getDuration(apikey, A, C);
+            console.log("dist2 is " + dist2);
+            dist3 = await getDuration(apikey, A, D);
+            console.log("dist3 is " + dist3);
+            var bestDur = Math.min(dist1, dist2, dist3);
+
+            if(bestDur == dist1){
+                console.log("bestDur is dist1: " + bestDur);
+                mapUrl = mapUrl + B + "/";
+                dist1 = await getDuration(apikey, B, C);
+                dist2 = await getDuration(apikey, B, D);
+                bestDur = Math.min(dist1,dist2);
+
+                if(bestDur == dist1){
+                    mapUrl = mapUrl + C + "/" + D;
+                    window.open(mapUrl, "Google Maps");
+                }
+                else if(bestDur == dist2){
+                    mapUrl = mapUrl + D + "/" + C;
+                    window.open(mapUrl, "Google Maps");
+                } 
+            }
+            else if(bestDur == dist2){
+                console.log("bestDur is dist2: " + bestDur);
+                mapUrl = mapUrl + C + "/";
+                dist1 = await getDuration(apikey, C, B);
+                dist2 = await getDuration(apikey, C, D);
+                bestDur = Math.min(dist1,dist2);
+
+                if(bestDur === dist1){
+                    mapUrl = mapUrl + B + "/" + D;
+                    window.open(mapUrl, "Google Maps");
+                }
+                else if(bestDur === dist2){
+                    mapUrl = mapUrl + D + "/" + B;
+                    window.open(mapUrl, "Google Maps");
+                }
+              }
+
+            else if(bestDur == dist3){
+                console.log("bestDur is dist3: " + bestDur);
+                mapUrl = mapUrl + D + "/";
+                dist1 = await getDuration(apikey, D, C);
+                dist2 = await getDuration(apikey, D, B);
+                bestDur = Math.min(dist1,dist2);
+
+                if(bestDur === dist1){
+                    mapUrl = mapUrl + C + "/" + B;
+                    window.open(mapUrl, "Google Maps");
+                }
+                else if(bestDur === dist2){
+                    mapUrl = mapUrl + B + "/" + C;
+                    window.open(mapUrl, "Google Maps");
+                }
+            }
+          })()
+
+        /*
+        var dist1 = getDuration(apikey, this.state.start.place, this.state.first.place)
         console.log("dist1 is " + dist1);
+
         var dist2 = getDuration(apikey, this.state.start.place, this.state.second.place);
         console.log("dist2 is " + dist2);
         var dist3 = getDuration(apikey, this.state.start.place, this.state.third.place);
         console.log("dist3 is " + dist3);
-        var bestDur = Math.min(dist1, dist2, dist3); 
+        
         if (bestDur === dist1)
         {
+          //console.log("bestDur is " + bestDur);
           mapUrl = mapUrl + this.state.first.place + "/";
           dist1 = Number(getDuration(apikey, this.state.first.place, this.state.second.place));
           dist2 = Number(getDuration(apikey, this.state.first.place, this.state.third.place));
@@ -132,7 +201,9 @@ export class ButtonToggle extends Component {
             window.open(mapUrl, "Google Maps");
           }
         }
+        */
       }
+      
     }
 
     toggle = () =>  {

@@ -24,7 +24,8 @@
 .Button{
     background-color: tan;
     background-position: center;
-    border-style: dashed;
+    border-style: solid;
     border-color: black;
+    border-width: 1.5px;
     padding: 15px;
 }
