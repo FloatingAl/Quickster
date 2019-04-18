@@ -266,7 +266,7 @@ export class ButtonToggle extends Component {
 
             {this.state.on3 && <GoogleComponent 
              apiKey={apikey} 
-             ref = "input3" language={'en'} country={'county:ca|country:us|country:mx'} coordinates={true} locationBoxStyle={'inputA'}locationListStyle={'slide'}
+             ref = "input3" key = {1} language={'en'} country={'country:ca|country:us|country:mx'} coordinates={true} locationBoxStyle={'inputA'}locationListStyle={'slide'}
              onChange={(e) => { this.setState({ third: e }) }} /> }
        
         </div>
