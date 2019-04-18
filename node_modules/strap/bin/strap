@@ -1,0 +1,37 @@
+#!/usr/bin/env node
+
+var program = require('commander');
+var spawn = require('child_process').spawn;
+var path = require('path');
+var fs = require('fs');
+
+
+program.version(require('../package').version);
+program.usage('<command> [options]');
+
+program.on('--help', function() {
+    console.log('  Commands:');
+    console.log();
+    console.log('    init <repo> [path]     create a new project from skeleton');
+    console.log();
+    process.exit();
+});
+
+program.parse(process.argv);
+
+
+var cmd = program.args[0];
+var bin = path.join(__dirname, 'strap-' + cmd);
+
+if (!cmd || !fs.existsSync(bin)) {
+    process.stdout.write(program.helpInformation());
+    program.emit('--help');
+    process.exit();
+}
+
+
+var proc = spawn(bin, process.argv.slice(3), { stdio: 'inherit', customFds: [0, 1, 2] });
+
+proc.on('close', function(code) {
+    process.exit(code);
+});

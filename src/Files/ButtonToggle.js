@@ -152,7 +152,6 @@ export class ButtonToggle extends Component {
                     window.open(mapUrl, "Google Maps");
                 }
               }
-
             else if(bestDur == dist3){
                 console.log("bestDur is dist3: " + bestDur);
                 mapUrl = mapUrl + D + "/";

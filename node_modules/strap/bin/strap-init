@@ -1,0 +1,75 @@
+#!/usr/bin/env node
+
+var program = require('commander');
+var wrench = require('wrench');
+var spawn = require('child_process').spawn;
+var url = require('url');
+var fs = require('fs');
+var path = require('path');
+
+
+program.usage('<repo> [path]');
+
+program.on('--help', function(){
+    console.log('  Examples:');
+    console.log();
+    console.log('    # initialize from url into "strap" current directory');
+    console.log('    $ strap init git://github.com/jeremyworboys/strap.git strap');
+    console.log();
+    console.log('    # initialize from repo in current directory');
+    console.log('    $ strap init jeremyworboys/strap');
+    console.log();
+    console.log('    # initialize from repo where username is the same as currently');
+    console.log('    # logged in user in current directory');
+    console.log('    $ strap init strap');
+    console.log();
+});
+
+program.parse(process.argv);
+
+
+var repo = program.args[0];
+
+if (!url.parse(repo).protocol) {
+
+    repo = repo.replace(/^\/+|\/+$/g, '');
+
+    var name = process.env.USER;
+    var i = repo.indexOf('/');
+
+    if (i !== -1) {
+        name = repo.slice(0, i);
+        repo = repo.slice(i + 1);
+    }
+
+    repo = 'git://github.com/' + name + '/' + repo + '.git';
+
+}
+
+if (url.parse(repo).protocol !== 'git:') {
+    console.error('Invalid protocol. Aborting...');
+    process.exit(1);
+}
+
+
+var dir = program.args[1] || '.';
+var files = [];
+
+try {
+    files = fs.readdirSync(dir);
+}
+catch (err) {
+    if (err.code !== 'ENOENT') throw err;
+}
+
+if (files.length) {
+    console.error('Destination is not empty. Aborting...');
+    process.exit(1);
+}
+
+var proc = spawn('git', ['clone', repo, dir], { stdio: 'inherit', customFds: [0, 1, 2] });
+
+proc.on('close', function(code) {
+    wrench.rmdirSyncRecursive(path.join(dir, '.git'));
+    process.exit(code);
+});
