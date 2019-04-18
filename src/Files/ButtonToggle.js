@@ -236,6 +236,7 @@ export class ButtonToggle extends Component {
             coordinates={true}
             locationBoxStyle={'input'}
             locationListStyle={'slide'}
+            placeholder = {"Please enter starting address"}
             
             onChange={(e) => { this.setState({ start: e }) }} />
         <p>Please choose the number of addresses you plan to visit:</p>
@@ -257,16 +258,19 @@ export class ButtonToggle extends Component {
              {this.state.on && <GoogleComponent 
              apiKey={apikey} 
              ref = "input1" language={'en'} country={'country:ca|country:us|country:mx'} coordinates={true} locationBoxStyle={'inputA'}locationListStyle={'slide'}
+             placeholder = {"Please enter address"}
              onChange={(e) => { this.setState({ first: e }) }} />}
 
             {this.state.on2 && <GoogleComponent 
              apiKey={apikey} 
              ref = "input2" language={'en'} country={'country:ca|country:us|country:mx'} coordinates={true} locationBoxStyle={'inputA'}locationListStyle={'slide'}
+             placeholder = {"Please enter address"}
              onChange={(e) => { this.setState({ second: e }) }} />}
 
             {this.state.on3 && <GoogleComponent 
              apiKey={apikey} 
              ref = "input3" key = {1} language={'en'} country={'country:ca|country:us|country:mx'} coordinates={true} locationBoxStyle={'inputA'}locationListStyle={'slide'}
+             placeholder = {"Please enter address"}
              onChange={(e) => { this.setState({ third: e }) }} /> }
        
         </div>
