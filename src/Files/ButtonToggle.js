@@ -270,7 +270,7 @@ export class ButtonToggle extends Component {
              onChange={(e) => { this.setState({ third: e }) }} /> }
        
         </div>
-        <div>
+        <div className="Submission">
         <button onClick={ (e) => { this.clicked(); } }> Submit</button>
         </div>
       </div>
