@@ -1,16 +1,16 @@
 {
-  "main.css": "/Quickster/static/css/main.2dc4c65c.chunk.css",
+  "main.css": "/Quickster/static/css/main.0ed16ce4.chunk.css",
   "main.js": "/Quickster/static/js/main.ab1241f6.chunk.js",
   "main.js.map": "/Quickster/static/js/main.ab1241f6.chunk.js.map",
   "runtime~main.js": "/Quickster/static/js/runtime~main.e141940c.js",
   "runtime~main.js.map": "/Quickster/static/js/runtime~main.e141940c.js.map",
   "static/css/2.42d92ecc.chunk.css": "/Quickster/static/css/2.42d92ecc.chunk.css",
-  "static/js/2.f156c01a.chunk.js": "/Quickster/static/js/2.f156c01a.chunk.js",
-  "static/js/2.f156c01a.chunk.js.map": "/Quickster/static/js/2.f156c01a.chunk.js.map",
+  "static/js/2.b12014c0.chunk.js": "/Quickster/static/js/2.b12014c0.chunk.js",
+  "static/js/2.b12014c0.chunk.js.map": "/Quickster/static/js/2.b12014c0.chunk.js.map",
   "index.html": "/Quickster/index.html",
-  "precache-manifest.5d12d21057ef7b752196950ab11290d2.js": "/Quickster/precache-manifest.5d12d21057ef7b752196950ab11290d2.js",
+  "precache-manifest.64471e63cc37b48b1edb68bdcbee0590.js": "/Quickster/precache-manifest.64471e63cc37b48b1edb68bdcbee0590.js",
   "service-worker.js": "/Quickster/service-worker.js",
   "static/css/2.42d92ecc.chunk.css.map": "/Quickster/static/css/2.42d92ecc.chunk.css.map",
-  "static/css/main.2dc4c65c.chunk.css.map": "/Quickster/static/css/main.2dc4c65c.chunk.css.map",
+  "static/css/main.0ed16ce4.chunk.css.map": "/Quickster/static/css/main.0ed16ce4.chunk.css.map",
   "static/media/App.css": "/Quickster/static/media/map.00b58d56.jpg"
 }

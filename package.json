@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "https://floatingal.github.io/Quickster/",
   "dependencies": {
-    "gh-pages": "^2.0.1",
+    "babel-preset-react-app": "^7.0.2",
     "google-maps-react": "^2.0.2",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
@@ -32,5 +32,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "gh-pages": "^2.0.1"
+  }
 }
