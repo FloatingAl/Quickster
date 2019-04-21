@@ -22,9 +22,6 @@
 
 
 .Button{
-    width: 50%;
-    height: 600px;
-    position: fixed;
     background-color: tan;
     background-position: center;
     border-style: solid;

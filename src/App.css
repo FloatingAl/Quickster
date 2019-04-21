@@ -12,7 +12,7 @@
 .App-header {
   background-image: url("img/map.jpg");
   background-repeat: no-repeat;
-  background-size: auto auto;
+  background-size: 1400px 1400px;
   background-position: center;
   background-color: #282c34;
   min-height: 100vh;
