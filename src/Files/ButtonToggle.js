@@ -15,6 +15,8 @@ export class ButtonToggle extends Component {
     
         // this.toggle = this.toggle.bind(this);
         this.state = {
+          message: "Choose...",
+          loading: false,
           dropdownOpen: false,
           msg: props.message,
           numItems : 3,
@@ -34,6 +36,14 @@ export class ButtonToggle extends Component {
 
     clicked() //will open a new tab to google maps
     {
+        this.setState({
+            loading: true,
+        });
+        setTimeout(()=> {
+            this.setState({
+                loading: false,
+            });
+        },3000)
       //console.log(this.state.start.coordinates.lat)
       if (this.state.currentClick == 0){
         if(this.state.start == null)
@@ -182,6 +192,7 @@ export class ButtonToggle extends Component {
 
     toggleButton1 = () => {
         this.setState({
+            message: 1,
             on:  true,
             on2: false,
             on3: false,
@@ -191,6 +202,7 @@ export class ButtonToggle extends Component {
 
     toggleButton2 = () => {
         this.setState({
+            message: 2,
             on: true,
             on2: true,
             on3: false,
@@ -202,6 +214,7 @@ export class ButtonToggle extends Component {
 
     toggleButton3 = () => {
         this.setState({
+            message: 3,
             on: true,
             on2:true,
             on3:true,
@@ -243,7 +256,7 @@ export class ButtonToggle extends Component {
         
         <ButtonDropdown id = "dropDownSelect" isOpen={this.state.dropdownOpen} toggle={this.toggle}>
         <DropdownToggle caret>
-          {message}
+          {this.state.message}
         </DropdownToggle>
         <DropdownMenu>
             {/* {
@@ -277,6 +290,9 @@ export class ButtonToggle extends Component {
         <div className="Submission">
         <button onClick={ (e) => { this.clicked(); } }> Submit</button>
         </div>
+        { this.state.loading && <h5 className="loading">Loading...</h5> }
+        { this.state.loading && <img className="image"src={require("../img/sonic.gif")}></img>}
+    
       </div>
       
     )

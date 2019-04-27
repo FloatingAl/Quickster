@@ -32,3 +32,12 @@
     border-width: 1.5px;
     padding: 15px;
 }
+
+.image {
+    width: 5%;
+    height: 5%;
+}
+
+.loading {
+    margin-top: 20px;
+}
