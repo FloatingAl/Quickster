@@ -236,8 +236,9 @@ export class ButtonToggle extends Component {
       const {message} = this.props
     return (
       <div className = "Button" >
-        <h4>The application only works with addresses within The United States, Canada, and Mexico</h4>
-        <h4>Please enter a starting address</h4>
+        {/* <h4>The application only works with addresses within The United States, Canada, and Mexico</h4> */}
+        <h4>Please enter a starting address :</h4>
+        <p id = "regionp">(Within United States, Canada, or Mexio)</p>
         {/* <Input className= "input" id = "inputStart" placeholder="Starting Address"></Input> */}
         <GoogleComponent
             type = "text"
@@ -249,10 +250,11 @@ export class ButtonToggle extends Component {
             coordinates={true}
             locationBoxStyle={'input'}
             locationListStyle={'slide'}
-            placeholder = {"Please enter starting address"}
+            placeholder = {"Address, City, State ZIP"}
             
             onChange={(e) => { this.setState({ start: e }) }} />
-        <p>Please choose the number of addresses you plan to visit:</p>
+        <p id = "addressp">Select the number of stops in the route, 
+          followed by their addresses :</p>
         
         <ButtonDropdown id = "dropDownSelect" isOpen={this.state.dropdownOpen} toggle={this.toggle}>
         <DropdownToggle caret>
@@ -271,19 +273,19 @@ export class ButtonToggle extends Component {
              {this.state.on && <GoogleComponent 
              apiKey={apikey} 
              ref = "input1" language={'en'} country={'country:ca|country:us|country:mx'} coordinates={true} locationBoxStyle={'inputA'}locationListStyle={'slide'}
-             placeholder = {"Please enter address"}
+             placeholder = {"Address, City, State ZIP"}
              onChange={(e) => { this.setState({ first: e }) }} />}
 
             {this.state.on2 && <GoogleComponent 
              apiKey={apikey} 
              ref = "input2" language={'en'} country={'country:ca|country:us|country:mx'} coordinates={true} locationBoxStyle={'inputA'}locationListStyle={'slide'}
-             placeholder = {"Please enter address"}
+             placeholder = {"Address, City, State ZIP"}
              onChange={(e) => { this.setState({ second: e }) }} />}
 
             {this.state.on3 && <GoogleComponent 
              apiKey={apikey} 
              ref = "input3" key = {1} language={'en'} country={'country:ca|country:us|country:mx'} coordinates={true} locationBoxStyle={'inputA'}locationListStyle={'slide'}
-             placeholder = {"Please enter address"}
+             placeholder = {"Address, City, State ZIP"}
              onChange={(e) => { this.setState({ third: e }) }} /> }
        
         </div>
