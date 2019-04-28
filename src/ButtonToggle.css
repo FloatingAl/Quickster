@@ -1,0 +1,40 @@
+.inputA{
+    margin-bottom: 10px;
+}
+.inputG{
+    margin-top: 50px;
+}
+
+.slide{
+    background-color: white;
+    color: black;
+    list-style-type: none;
+}
+
+.slide:hover{
+    background-color: grey;
+}
+
+#inputStart{
+    background-color: white;
+    border-block-end-style: hidden;
+}
+
+
+.Button{
+    background-color: #ddceb5;
+    background-position: center;
+    border-style: solid;
+    border-color: black;
+    border-width: 1.5px;
+    padding: 15px;
+}
+
+.image {
+    width: 5%;
+    height: 5%;
+}
+
+.loading {
+    margin-top: 20px;
+}
