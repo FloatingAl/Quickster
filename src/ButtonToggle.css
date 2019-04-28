@@ -22,10 +22,7 @@
 
 
 .Button{
-    /* width: 50%;
-    height: 600px;
-    position: fixed; */
-    background-color: #ebd8b9;
+    background-color: tan;
     background-position: center;
     border-style: solid;
     border-color: black;
