@@ -254,7 +254,7 @@ export class ButtonToggle extends Component {
             
             onChange={(e) => { this.setState({ start: e }) }} />
         <p id = "addressp">Select the number of stops in the route, 
-          followed by their addresses :</p>
+          followed by their addresses:</p>
         
         <ButtonDropdown id = "dropDownSelect" isOpen={this.state.dropdownOpen} toggle={this.toggle}>
         <DropdownToggle caret>
