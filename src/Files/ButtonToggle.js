@@ -238,7 +238,7 @@ export class ButtonToggle extends Component {
       <div className = "Button" >
         {/* <h4>The application only works with addresses within The United States, Canada, and Mexico</h4> */}
         <h4>Please enter a starting address :</h4>
-        <p id = "regionp">(Within United States, Canada, or Mexio)</p>
+        <p id = "regionp">(Within United States, Canada, or Mexico)</p>
         {/* <Input className= "input" id = "inputStart" placeholder="Starting Address"></Input> */}
         <GoogleComponent
             type = "text"
